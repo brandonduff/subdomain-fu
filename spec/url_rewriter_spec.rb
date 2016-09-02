@@ -24,12 +24,12 @@ describe "SubdomainFu URL Writing" do
 
     it "should should not force the full url with :only_path if override_only_path is false (default)" do
       SubdomainFu.override_only_path = false
-      url_for(:controller => "something", :action => "other", :subdomain => "awesome", :only_path => true).should == "/something/other"
+      url_for(:controller => "something", :action => "other", :subdomain => "awesome").should == "/something/other"
     end
 
     it "should should force the full url, even with :only_path if override_only_path is true" do
       SubdomainFu.override_only_path = true
-      url_for(:controller => "something", :action => "other", :subdomain => "awesome", :only_path => true).should == "http://awesome.example.com/something/other"
+      url_for(:controller => "something", :action => "other", :subdomain => "awesome").should == "http://awesome.example.com/something/other"
     end
   end
 
